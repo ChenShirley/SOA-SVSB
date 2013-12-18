@@ -1,0 +1,24 @@
+<%= form_for @request, :url => request_path(@request.id), :method => :put do |f| %>
+    <%= f.label :productname, "Product Name" %>
+    <%= f.text_field :productname %>
+		</br>
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description %>
+		</br>
+    <%= f.label :quantity, "Quantity" %>
+    <%= f.text_field :quantity %>
+		</br>
+    <%= f.label :maxprice, "Max Price" %>
+    <%= f.text_field :maxprice %>
+		</br>
+    <%= f.label :location, "Location" %>
+    <%= f.text_field :location %>
+		</br>
+    <%= f.label :deadline, "Deadline" %>
+    <%= f.text_field :deadline %>
+		</br>
+    <%= f.label :pic_id, "Picture Upload" %>
+    <%= f.text_field :pic_id %>
+		</br>
+    <%= f.submit "Update" %>
+<% end %>

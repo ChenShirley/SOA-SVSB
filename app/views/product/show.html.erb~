@@ -1,0 +1,22 @@
+<%= @request.user.name %>
+</br>
+
+<%= simple_format(@request.productname) %>
+</br>
+
+<%= simple_format(@request.description) %>
+</br>
+
+<%= @request.quantity %>
+</br>
+
+<%= @request.maxprice %>
+</br>
+
+<%= simple_format(@request.location) %>
+</br>
+
+<%= simple_format(@request.deadline) %>
+</br>
+
+<p><%= link_to 'Back to index', request_index_path %></p>

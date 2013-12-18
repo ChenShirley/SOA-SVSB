@@ -1,0 +1,11 @@
+<ul>
+<% @request.each do |request| %>
+  <li>
+  <%= request.productname %>
+  <%= link_to 'Show', request_path(request.id) %>
+  <%= link_to 'Edit', edit_request_path(request.id) %>
+  <%= link_to 'Delete', request_path(request.id), :method => :delete %>
+  </li>
+<% end %>
+</ul>
+<%= link_to 'New Request', new_request_path %>

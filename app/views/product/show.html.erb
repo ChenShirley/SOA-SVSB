@@ -1,0 +1,22 @@
+<%= @product.user.name %>
+</br>
+
+<%= simple_format(@product.productname) %>
+</br>
+
+<%= simple_format(@product.description) %>
+</br>
+
+<%= @product.quantity %>
+</br>
+
+<%= @product.maxprice %>
+</br>
+
+<%= simple_format(@product.location) %>
+</br>
+
+<%= simple_format(@product.deadline) %>
+</br>
+
+<p><%= link_to 'Back to index', product_index_path %></p>
