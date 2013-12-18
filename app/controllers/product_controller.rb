@@ -14,7 +14,7 @@ class ProductController < ApplicationController
 		@product = Product.new(params[:product])
 		@product.save
 
-		redirect_to request_index_path
+		redirect_to product_index_path
 	end
 
 	def edit
@@ -25,7 +25,7 @@ class ProductController < ApplicationController
 		@product = Product.find(params[:id])
 		@product.update_attributes(params[:product])
 
-		redirect_to request_path(@product) # action=> :show
+		redirect_to product_path(@product) # action=> :show
 	end
 
 	def show
@@ -36,7 +36,7 @@ class ProductController < ApplicationController
 		@product = Product.find(params[:id])
 		@product.destroy
 
-		redirect_to request_index_path
+		redirect_to product_index_path
 	end
 
 	def search

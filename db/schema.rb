@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131204025110) do
+ActiveRecord::Schema.define(:version => 20131218164250) do
 
-  create_table "requests", :force => true do |t|
+  create_table "products", :force => true do |t|
     t.string   "productname"
     t.text     "description"
     t.integer  "quantity"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20131204025110) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.integer  "request_id"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "provider"
