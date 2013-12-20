@@ -2,8 +2,8 @@ SoaSvsb::Application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-	root :to => "request#index"
-	resources :request
+	root :to => "product#index"
+	resources :product
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

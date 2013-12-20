@@ -1,22 +1,36 @@
-<center>
-<div align="left">
-	<h2>Group Purchase</h2>
-	<h2>Sign in</h2>
+<div id="carousel-example-generic" class="carousel slide carousel_home">
 
-	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-		<div><%= f.label :email %><br />
-		<%= f.email_field :email, :autofocus => true %></div>
 
-		<div><%= f.label :password %><br />
-		<%= f.password_field :password %></div>
-
-		<% if devise_mapping.rememberable? -%>
-		  <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-		<% end -%>
-
-		<div><%= f.submit "Sign in" %></div>
-	<% end %>
-
-	<%= render "users/shared/links" %>
+        <!-- Wrapper for slides -->
+       
+        <div class="carousel-inner">
+                <div class="item active bg_image2">
+<div>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
 </div>
-</center>
+
+		
+		</div>
+        </div>
+</div>
+
+<h2>Sign in</h2>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, :autofocus => true %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+  <% end -%>
+
+  <div><%= f.submit "Sign in" %></div>
+<% end %>
+
+<%= render "users/shared/links" %>

@@ -1,4 +1,4 @@
-<%= form_for @request, :url => request_path(@request.id), :method => :put } do |f| %>
+<%= form_for @product, :url => product_index_path(@product.id), :method => :post do |f| %>
     <%= f.label :productname, "Product Name" %>
     <%= f.text_field :productname %>
 		</br>
@@ -20,5 +20,8 @@
     <%= f.label :pic_id, "Picture Upload" %>
     <%= f.text_field :pic_id %>
 		</br>
-    <%= f.submit "Update" %>
+
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+
+    <%= f.submit "Create" %>
 <% end %>

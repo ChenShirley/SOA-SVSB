@@ -1,0 +1,48 @@
+ 
+<div id="carousel-example-generic" class="carousel slide carousel_home">
+
+
+        <!-- Wrapper for slides -->
+       
+        <div class="carousel-inner">
+                <div class="item active bg_image1">
+<div>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+</div>
+
+<!--creates space between Welcom message and search bar -->
+
+			<div class=" col-lg-8 center_overlay">
+				<div class="form-group">
+					<p class="home_margin text-center home_font">See what you can buy in bulk today</p>
+					<input type="text" class="form-control" id="search_speciality" placeholder="Search for products">
+				</div>
+			</div>
+	<!-- creates search bar -->
+
+		</div>
+        </div>
+</div>
+
+
+
+
+
+<ul>
+<% @product.each do |product| %>
+  <li>
+  <%= product.productname %>
+  <%= link_to 'Show', product_path(product.id) %>
+  <%= link_to 'Edit', edit_product_path(product.id) %>
+  <%= link_to 'Delete', product_path(product.id), :method => :delete %>
+  </li>
+<% end %>
+</ul>
+
