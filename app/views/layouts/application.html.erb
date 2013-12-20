@@ -34,6 +34,7 @@
 
 <% if current_user %>
 	<%= link_to('logout', destroy_user_session_path, :method => :delete, :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
+
 <% else %>
 	<%= link_to('sign up', new_registration_path(:user), :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
 <% end %>
@@ -69,20 +70,15 @@
   </div>
  
 <div id="carousel-example-generic" class="carousel slide carousel_home">
-<div class="carousel_overlay_div">
-                <div class="container container_home">
-                        <div class=" col-lg-8 center_overlay">
-                                <div class="form-group">
-                                        <p class="home_margin text-center home_font">See what people want to buy today</p>
-                                        <input type="text" class="form-control" id="search_speciality" placeholder="Search for products">
-                                </div>
-                        </div>
-                </div>
-        </div>
+
+
         <!-- Wrapper for slides -->
        
         <div class="carousel-inner">
                 <div class="item active bg_image2">
+<p></p>
+
+<%= yield %>
                         <div class="carousel-caption">
  
                                 <p class=" text-center caption_font">"I'm going to buy Shampoo on Friday. Anyone want to buy in bulk a share?</p>
@@ -100,7 +96,6 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-<%= yield %>
 
 </body>
 </html>
