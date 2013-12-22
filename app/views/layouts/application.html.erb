@@ -15,7 +15,7 @@
                 <div class="navbar-header">
                    
 			<a>
-<img class="logo_brand"  src=http://lipshipsandfashiontips.files.wordpress.com/2013/04/lovebulkbutton.png>
+<img class="logo_brand"  style="width:100px;" src=http://lipshipsandfashiontips.files.wordpress.com/2013/04/lovebulkbutton.png>
 			</a>
 <!--Love Bulk Logo image-->
                                                  
@@ -66,7 +66,7 @@
 	<li class="navbar_list">
         <div class="dropdown">
                                
- <%= link_to('New product', new_product_path(:product), :class=>"btn btn-danger", :id=>"my-account") %>
+ <%= link_to('New product', new_product_path, :class=>"btn btn-danger", :id=>"my-account") %>
 
 	</div>
 	</li> 
@@ -92,6 +92,8 @@
 
 <p></p>
 
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 			<%= yield %>
 
 <!-- Content from other pages will appear in this yield area infront of the background image-->
@@ -109,10 +111,6 @@
                 </div>
         </div>
 </div>
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
 
 </body>
 </html>

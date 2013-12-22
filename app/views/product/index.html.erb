@@ -1,9 +1,5 @@
- 
 <div id="carousel-example-generic" class="carousel slide carousel_home">
-
-
         <!-- Wrapper for slides -->
-       
         <div class="carousel-inner">
                 <div class="item active bg_image1">
 <div>
@@ -19,19 +15,8 @@
 				<div class="form-group">
 					<p class="home_margin text-center home_font">See what you can buy in bulk today</p>
 					<input type="text" class="form-control" id="search_speciality" placeholder="Search for products">
-				</div>
-			</div>
-	<!-- creates search bar -->
 
-		</div>
-        </div>
-</div>
-
-
-
-
-
-<ul>
+<div class="home_margin text-center home_font">
 <% @product.each do |product| %>
   <li>
   <%= product.productname %>
@@ -40,5 +25,12 @@
   <%= link_to 'Delete', product_path(product.id), :method => :delete %>
   </li>
 <% end %>
-</ul>
+</div>
 
+				</div>
+			</div>
+	<!-- creates search bar -->
+
+		</div>
+        </div>
+</div>

@@ -2,23 +2,23 @@
     <%= f.label :productname, "Product Name" %>
     <%= f.text_field :productname %>
 		</br>
-    <%= f.label :description, "Description" %>
-    <%= f.text_area :description %>
+    <%= f.label :pic_id, "Picture Upload" %>
+    <%= f.text_field :pic_id %>
 		</br>
     <%= f.label :quantity, "Quantity" %>
-    <%= f.text_field :quantity %>
+    <%= f.select :quantity,[['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],['9','9'],['10','10']] %>
 		</br>
     <%= f.label :maxprice, "Max Price" %>
     <%= f.text_field :maxprice %>
 		</br>
     <%= f.label :location, "Location" %>
-    <%= f.text_field :location %>
+    <%= f.select :location, [['Taipei','1'],['HsinChu','2'],['Taichung','3'],['Tainan','4'],['Kaohsiung','5'],['Eastern Taiwan','6']] %>
 		</br>
     <%= f.label :deadline, "Deadline" %>
     <%= f.text_field :deadline %>
 		</br>
-    <%= f.label :pic_id, "Picture Upload" %>
-    <%= f.text_field :pic_id %>
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description, :size=>"15x5" %>
 		</br>
 
     <%= f.hidden_field :user_id, :value => current_user.id %>
