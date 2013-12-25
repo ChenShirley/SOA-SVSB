@@ -8,7 +8,7 @@
 		Product Name: <%= @product.productname %>
 		</br>
 
-		Product Photo: 
+		Product Photo: <%= image_tag @product.pic.url(:medium) %>
 		</br>
 
 		Quantity: <%= @product.quantity %>

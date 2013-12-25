@@ -7,7 +7,6 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :maxprice
       t.string :location
       t.string :deadline
-			t.integer :pic_id
 			t.integer :user_id
 
       t.timestamps

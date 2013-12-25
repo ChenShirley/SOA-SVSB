@@ -24,8 +24,8 @@ group :production do
 end
 
 group :test, :development do 
-gem 'debugger' 
-gem 'sqlite3','~>1.3.8' # use SQLite only in development and testing end
+	gem 'debugger' 
+	gem 'sqlite3','~>1.3.8' # use SQLite only in development and testing end
 end
 
 gem 'heroku'
@@ -34,6 +34,8 @@ gem 'devise'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
