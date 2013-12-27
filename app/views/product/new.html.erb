@@ -1,27 +1,61 @@
+<center>
+<div>
+<div class=" col-lg-8 center_overlay">
+	<div class ="col-lg 2 center_overlay">
+
+		<h2 style = "color: #73be60">Add New Product</h2>
+</br>
+
 <%= form_for @product, :url => product_index_path(@product.id), :method => :post do |f| %>
-    <%= f.label :productname, "Product Name" %>
-    <%= f.text_field :productname %>
-		</br>
+
+    
+<div class="col-lg-4 new_item_image_container">
+	
+	<img src="http://speciality.r13.railsrumble.com/assets/default-new-item-e751e081746cd94c3b2e9fab290808e9.png" class="new_item_image">
+	<div class="custom-file-upload btn btn-success new_item_upload_button" >
+	    <div class="file-upload">
+	      <span class="file-upload-text">Upload Image</span>
+	                               </div>
+	      <input class="span" name="dish[attachment]" 
+	                                                       size="30" type="file" accept='image/*'>
+			</div>
+
     <%= f.label :pic_id, "Picture Upload" %>
    	<%= f.file_field :pic %>
+</div>
+
+<span style = "color: #B4EEF5"><%= f.label :productname, "Product Name" %>
+    <%= f.text_field :productname %>
 		</br>
-    <%= f.label :quantity, "Quantity" %>
+		</br>
+							
+    <span style = "color: #B4EEF5"><%= f.label :quantity, "Quantity" %></span>
     <%= f.select :quantity,[['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],['9','9'],['10','10']] %>
-		</br>
-    <%= f.label :maxprice, "Max Price" %>
+		</br></br>
+
+    <span style = "color: #B4EEF5"><%= f.label :maxprice, "Max Price" %></span>
     <%= f.text_field :maxprice %>
-		</br>
-    <%= f.label :location, "Location" %>
+		</br></br>
+
+    <span style = "color: #B4EEF5"><%= f.label :location, "Location" %></span>
     <%= f.select :location, [['Taipei','1'],['HsinChu','2'],['Taichung','3'],['Tainan','4'],['Kaohsiung','5'],['Eastern Taiwan','6']] %>
-		</br>
-    <%= f.label :deadline, "Deadline" %>
+		</br></br>
+
+    <span style = "color: #B4EEF5"><%= f.label :deadline, "Deadline" %></span>
     <%= f.text_field :deadline %>
-		</br>
-    <%= f.label :description, "Description" %>
+		</br></br>
+
+    <span style = "color: #B4EEF5"><%= f.label :description, "Description" %></span></br>
     <%= f.text_area :description, :size=>"15x5" %>
 		</br>
 
     <%= f.hidden_field :user_id, :value => current_user.id %>
-
+</br>
     <%= f.submit "Create" %>
 <% end %>
+ 
+</div>
+
+</div>
+</div>
+</center>
