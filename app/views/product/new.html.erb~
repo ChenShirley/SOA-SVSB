@@ -1,27 +1,80 @@
-<%= form_for @request, :url => request_index_path(@request.id), :method => :post do |f| %>
+<%= form_for @product, :url => product_index_path(@product.id), :method => :post do |f| %>
+
+
+<div class="modal fade" id="new_item_modal">
+		<div class="modal-dialog ">
+			<div class="modal-content add_item_container">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<p class="new-item-heading">Add a new dish to Speciality</
+				<div class="modal-body">
+					
+<div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="OGcm2XOAJbC0vwD4yyCVfUparkm0otcmCZf99w5Jp4Q=" /></div>
+						
+						<div class="col-lg-4 new_item_image_container">
+								<h5 style="text-align:center;">PHOTO</h5> 
+								<img src="/assets/default-new-item-e751e081746cd94c3b2e9fab290808e9.png" class="new_item_image">
+								<div class="custom-file-upload btn btn-success new_item_upload_button" >
+	                               <div class="file-upload">
+	                                	<span class="file-upload-text">Upload Image</span>
+	                               </div>
+
+
+
     <%= f.label :productname, "Product Name" %>
     <%= f.text_field :productname %>
 		</br>
-    <%= f.label :description, "Description" %>
-    <%= f.text_area :description %>
+    <%= f.label :pic_id, "Picture Upload" %>
+   	<%= f.file_field :pic %>
 		</br>
     <%= f.label :quantity, "Quantity" %>
-    <%= f.text_field :quantity %>
+    <%= f.select :quantity,[['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],['9','9'],['10','10']] %>
 		</br>
     <%= f.label :maxprice, "Max Price" %>
     <%= f.text_field :maxprice %>
 		</br>
     <%= f.label :location, "Location" %>
-    <%= f.text_field :location %>
+    <%= f.select :location, [['Taipei','1'],['HsinChu','2'],['Taichung','3'],['Tainan','4'],['Kaohsiung','5'],['Eastern Taiwan','6']] %>
 		</br>
     <%= f.label :deadline, "Deadline" %>
     <%= f.text_field :deadline %>
 		</br>
-    <%= f.label :pic_id, "Picture Upload" %>
-    <%= f.text_field :pic_id %>
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description, :size=>"15x5" %>
 		</br>
 
-    <%= f.hidden_field :user_id, :value => current_user.id %>
+  
+	                               <input class="span" name="dish[attachment]" 
+	                                                       size="30" type="file" accept='image/*'>
+								</div>
+								<!-- <button type="button" class="btn btn-success new_item_upload_button">Upload</button> -->
+						</div>
+						<div class="col-lg-8 new_item_details_container">
+								<div class="form-group">
+									<label for="dish_name">NAME</label>
+									<input class="form-control new_item_form_input" id="dish_name" name="dish[name]" size="30" type="text" />
+								</div>
+								<div class="form-group">
+									<label for="dish_description">DESCRIPTION</label>(max 300)
+									<textarea id="dish_description" class="new_item_txt" rows="20" name="dish[description]" cols="40" maxlength="300"></textarea>
+								</div>
+								<div class="form-group">
+									<label for="dish_tag_names" style="padding-top: 10px;">Tag names</label><br />
+									<input class="tags_autocomplete single-input-hack new_item_form_input" data-value="" id="dish_tag_names" name="dish[tag_names]" size="30" type="text" value=" " />
+								</div>
+								<div class="form-group">
+									<label class="restaurant_label" for="dish_restaurant_name">Restaurant name</label><br />
+									<input class="restaurant_autocomplete single-input-hack new_item_form_input" id="dish_restaurant_name" name="dish[restaurant_name]" size="30" type="text" />
+								</div>
+								<div class="form-group">
+									<label for="exampleInputEmail1">ADDRESS</label>
+									  <div id="locationField">
+    <input id="autocomplete" placeholder="Enter your address"
+    onFocus="geolocate()" type="text" name="location[address]" class="form-control new_item_form_input"></input>
+    <input id="latitude" name="location[latitude]" type="hidden"></input>
+    <input id="longitude" name="location[longitude]" type="hidden"></input>
+  </div>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
 
     <%= f.submit "Create" %>
 <% end %>

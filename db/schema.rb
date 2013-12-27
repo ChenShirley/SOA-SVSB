@@ -29,6 +29,19 @@ ActiveRecord::Schema.define(:version => 20131223171723) do
     t.datetime "pic_updated_at"
   end
 
+  create_table "requests", :force => true do |t|
+    t.string   "productname"
+    t.text     "description"
+    t.integer  "quantity"
+    t.integer  "maxprice"
+    t.string   "location"
+    t.string   "deadline"
+    t.integer  "pic_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.integer  "gender"
