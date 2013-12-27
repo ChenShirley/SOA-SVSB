@@ -1,14 +1,18 @@
+
 <center>
-<div class="signin_box">
-<h2>Group Purchase</h2>
-<h2>Sign in</h2>
+<div class=" col-lg-8 center_overlay">
+
+		<div class ="col-lg 2 center_overlay">
+
+		<h1 style = "color:white">Welcome to Love Bulk!</h1>	
+		<h2 style = "color: #B4EEF5">Sign in</h2>
 
 		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
-			<div text-align: left;><%= f.label :email %><br />
+			<div style = "color: #B4EEF5"><%= f.label :email %><br />
 			<%= f.email_field :email, :autofocus => true %></div>
 
-			<div text-align: left;><%= f.label :password %><br />
+			<div style = "color: #B4EEF5"><%= f.label :password %><br />
 			<%= f.password_field :password %></div>
 
 			<% if devise_mapping.rememberable? -%>
@@ -23,15 +27,5 @@
 			<%= render "devise/shared/links" %>
 		</p>
 </div>
+</div>
 </center>
-
-<style>
-.signin_box{
-	border:dashed 5px #000000;
-	-moz-border-radius: 15px;
-	-webkit-border-radius: 15px;
-	border-radius: 15px;
-	width: 50%;
-	height: auto;
-}
-</style>
