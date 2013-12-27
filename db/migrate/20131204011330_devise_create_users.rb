@@ -3,7 +3,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
     create_table(:users) do |t|
 			t.string :name
 			t.integer :gender
-			t.integer :pic_id
 
       ## Database authenticatable
       t.string :email,              :null => false, :default => ""

@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20131223171723) do
     t.datetime "updated_at",                             :null => false
     t.string   "provider"
     t.string   "uid"
+    t.string   "image"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
