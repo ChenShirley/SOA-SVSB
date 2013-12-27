@@ -30,6 +30,9 @@ class ProductController < ApplicationController
 
 	def show
   	@product = Product.includes(:user).find(params[:id])
+
+  	@user = User.includes(:product).find(@product.id)
+
 		respond_to do |format|
 		  format.html # show.html.erb
 		  format.xml  { render :xml => @product }
