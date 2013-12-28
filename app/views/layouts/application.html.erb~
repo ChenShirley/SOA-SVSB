@@ -86,7 +86,7 @@
         <!-- Wrapper for slides -->
        
         <div class="carousel-inner">
-                <div class="item active bg_image1">
+                <div class="item active bg_image5">
 
 <!-- You can change the background picture of every page by changing the url of the bg_image class name here and adding the url of that class on the app.css. I am currently using bg_image1 (homepage) and bg_image2. bg_image3-5 are free so you can change the urls for these classes -->
 
@@ -98,15 +98,7 @@
 
 <!-- Content from other pages will appear in this yield area infront of the background image-->
 
-                        <div class="carousel-caption">
- 
-                                <p class=" text-center caption_font">"I'm going to buy Shampoo on Friday. Anyone want to buy in bulk a share?</p>
-                               <b>
-              <p class="carousel-dish-name">Busi</p>
-                                </b>
-    <!-- This caption appears in every page, we can change it to say what ever we want-->
-                        </div>
-               
+                                
                
                 </div>
         </div>

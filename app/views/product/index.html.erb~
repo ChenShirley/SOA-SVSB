@@ -2,12 +2,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
                 <div class="item active bg_image1">
-<div>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-</div>
+
 
 <!--creates space between Welcom message and search bar -->
 
@@ -27,100 +22,33 @@
 <div class="inc_container">
 	<div class="row">
 	<div class="heading_padding ">
+<center>
 		<p class="section_heading">Categories</p>
+</center>
 	</div>
 	</div>
-<div class="row component_padding_left ">
-	<div class="col-md-3 component_front  component_margin_right component_margin_bottom ">
-	<!-- <a href=''> -->
-		<div>
-			<img alt="Show_image" class="" src="http://static2.stuff.co.nz/1363555512/214/8439214.jpg" />
-			<div class="component-caption">
-				<p class="tag_name">Toletries</p>
-			</div>
-		</div>
-	</a>
-	<!-- <div class="back_component">
-		<div class="back_component_first">
-			<p class="back_component_first_heading text-center">Pizza</p>
-			<p class="back_component_first_content text-center">
-				Little Star</p>
-		</div>
-		<div class="back_component_color">
-			<p class="back_component_content"><span class=""></span>4.36364</p>
-		</div>
-		<div class="back_component_white">
-			<p class="back_component_content"><span class=""></span>100</p>
-		</div>
-		<div class="back_component_color">
-			<p class="back_component_content"><span class=""></span>846 Divisadero St, San Francisco, CA</p>
-		</div>
-		<div class="back_component_last back_center">
-			<a href="/dishes/86">View more</a>
-		</div>
-	</div> -->
-</div>
-<div class="col-md-3 component_front  component_margin_right component_margin_bottom ">
-	<a href='/search?search%5Btags%5D=Italian'>
-		<div>
-			<img alt="Show_image" class="" src="http://i631.photobucket.com/albums/uu35/mudimesra/pekanbaru/mieinstant.jpg" />
-			<div class="component-caption">
-				<p class="tag_name">Food</p>
-			</div>
-		</div>
-	</a>
-	<!-- <div class="back_component">
-		<div class="back_component_first">
-			<p class="back_component_first_heading text-center">Pasta</p>
-			<p class="back_component_first_content text-center">
-				Pasta Gina</p>
-		</div>
-		<div class="back_component_color">
-			<p class="back_component_content"><span class=""></span>4.6</p>
-		</div>
-		<div class="back_component_white">
-			<p class="back_component_content"><span class=""></span>100</p>
-		</div>
-		<div class="back_component_color">
-			<p class="back_component_content"><span class=""></span>741 Diamond Street, San Francisco, CA</p>
-		</div>
-		<div class="back_component_last back_center">
-			<a href="/dishes/84">View more</a>
-		</div>
-	</div> -->
-</div>
-<div class="col-md-3 component_front  component_margin_right component_margin_bottom ">
-	<a href='/search?search%5Btags%5D=burger'>
-		<div>
-			<img alt="Show_image" class="" src="http://www.rajahmundry.me/Rajamahendravaram/uploads/20120430103100-1160079293-Stationaries2.jpg" />
-			<div class="component-caption">
-				<p class="tag_name">Stationary & Books</p>
-			</div>
-		</div>
-	</a>
-	<!-- <div class="back_component">
-		<div class="back_component_first">
-			<p class="back_component_first_heading text-center">Burger</p>
-			<p class="back_component_first_content text-center">
-				SF Grill</p>
-		</div>
-		<div class="back_component_color">
-			<p class="back_component_content"><span class=""></span>4.25</p>
-		</div>
-		<div class="back_component_white">
-			<p class="back_component_content"><span class=""></span>100</p>
-		</div>
-		<div class="back_component_color">
-			<p class="back_component_content"><span class=""></span>550 Divisadero Street, San Francisco, CA</p>
-		</div>
-		<div class="back_component_last back_center">
-			<a href="/dishes/91">View more</a>
-		</div>
-	</div> -->
-</div>
+<div class="row component_padding_left">
+
+	 <div class="col-md-3 component_front component_margin_right component_margin_bottom ">
+    <img class="img-circle foodies" src="http://daxueconsulting.com/wp-content/uploads/2012/08/daxue-consulting-instant-noodles.jpg" />
+    <p class="foodie_name text-center">Food</p>
+	</div>
+
+    <div class="col-md-3 component_front component_margin_right component_margin_bottom ">
+    <img class="img-circle foodies" src="http://static2.stuff.co.nz/1363555512/214/8439214.jpg" />
+    <p class="foodie_name text-center">Toiletries</p>
+    </div>
+
+	<div class="col-md-3 component_front component_margin_right component_margin_bottom ">
+    <img class="img-circle foodies" src="http://www.rajahmundry.me/Rajamahendravaram/uploads/20120430103100-1160079293-Stationaries2.jpg" />
+    <p class="foodie_name text-center">Stationary</p>
+    
+	</div>
 
 </div>
-  
+</div>
+
+<div>
 <% @product.each do |product| %>
   <li>
   <%= product.productname %>
@@ -130,8 +58,7 @@
   <%= link_to 'Delete', product_path(product.id), :method => :delete %>
   </li>
 <% end %>
+</div>
+</div>
+</div>
 
-</div>
-</div>
-</div>
- 
