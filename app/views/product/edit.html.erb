@@ -2,6 +2,9 @@
     <%= f.label :productname, "Product Name" %>
     <%= f.text_field :productname %>
 		</br>
+  <%= f.label :category, "Category" %>
+    <%= f.select :category, [['Food','1'],['Toiletries','2'],['Stationary','3']] %>
+		</br>
     <%= f.label :pic_id, "Picture Upload" %>
    	<%= f.file_field :pic %>
 		</br>

@@ -28,7 +28,10 @@
     <%= f.text_field :productname %>
 		</br>
 		</br>
-							
+			   <%= f.label :category, "Category" %>
+    <%= f.select :category, [['Food','1'],['Toiletries','2'],['Stationary','3']] %>
+		</br>	
+</br>			
     <span style = "color: #B4EEF5"><%= f.label :quantity, "Quantity" %></span>
     <%= f.select :quantity,[['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],['9','9'],['10','10']] %>
 		</br></br>

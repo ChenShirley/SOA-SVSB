@@ -45,7 +45,7 @@
     <%= f.text_field :deadline %>
 		</br></br>
 
-    <span style = "color: #B4EEF5"><%= f.label :description, "Description" %></span>
+    <span style = "color: #B4EEF5"><%= f.label :description, "Description" %></span></br>
     <%= f.text_area :description, :size=>"15x5" %>
 		</br>
 
