@@ -53,7 +53,7 @@
 <% @product.each do |product| %>
   <li>
   <%= product.productname %>
-	<%= image_tag "http://graph.facebook.com/#{current_user.uid}/picture?type=large" %>
+
   <%= link_to 'Show', product_path(product.id) %>
   <%= link_to 'Edit', edit_product_path(product.id) %>
   <%= link_to 'Delete', product_path(product.id), :method => :delete %>
