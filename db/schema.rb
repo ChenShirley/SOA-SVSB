@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131223171723) do
+ActiveRecord::Schema.define(:version => 20131229184549) do
+
+  create_table "buys", :force => true do |t|
+    t.integer  "quantity"
+    t.string   "place"
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "joins", :force => true do |t|
+    t.integer  "quantity"
+    t.string   "deadline"
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "products", :force => true do |t|
     t.string   "productname"
@@ -33,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20131223171723) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.integer  "gender"
+    t.integer  "pic_id"
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"

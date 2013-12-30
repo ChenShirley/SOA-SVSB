@@ -1,54 +1,90 @@
+<center>
+<div>
 <div class=" col-lg-8 center_overlay">
-	<div class="form-group">
-		<div style="color:white; font:14px;">
+	<div class ="col-lg 2 center_overlay">
 
-		Requester: <%= @product.user.name %>
-		</br>
+		<h2 style = "color: #73be60">Product Request</h2>
+</br>
 
-		Product Name: <%= @product.productname %>
-		</br>
-		
-		Category:
-		<% case @product.category %>
-			<% when '1' %>
-			<%= "Food" %>
-			<% when '2' %>
-			<%= "Toiletries" %>
-			<% when '3' %>
-			<%= "Stationary" %>
-			
+<div style="float:right;">
+	<%= image_tag @product.pic.url(:medium)  %>
+	</br>
+	</br>
+
+	<div style="text-align:center;margin-bottom:20px;height:28px;font-size:13px;border:1px solid #73be60;background-color:#73be60;float:right;cursor:pointer;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;">
+		<span style="float:right;font-weight:bold;text-align:center;">
+			 <%= link_to('Be a Buyer', :controller=>"buy", :action=>"new", :product=>@product.id) %>
+		</span>
+	</div>
+	</br>
+	</br>
+
+	<div>
+		<% @buy.each do |buy| %>
+	<span style="float:right;font-weight:bold;text-align:center; color:white;">
+			<%= buy.user.name %>
+	</span>
 		<% end %>
-		</br>
-		Product Photo: <%= image_tag @product.pic.url(:medium) %>
-		</br>
+	</div>
 
-		Quantity: <%= @product.quantity %>
-		</br>
 
-		Max. Acceptable Price: <%= @product.maxprice %>
-		</br>
+	<div style="text-align:center;margin-bottom:20px;height:28px;font-size:13px;border:1px solid #73be60;background-color:#73be60;float:right;cursor:pointer;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;">
+		<span style="float:right;font-weight:bold;text-align:center;">
+			 <%= link_to('I want to join', :controller=>"join", :action=>"new", :product=>@product.id) %>
+		</span>
+	</div>
+</div>
+	</br>
+	</br>
 
-		Location / District: 
-		<% case @product.location %>
-			<% when '1' %>
-			<%= "Taipei" %>
-			<% when '2' %>
-			<%= "HsinChu" %>
-			<% when '3' %>
-			<%= "Taichung" %>
-			<% when '4' %>
-			<%= "Tainan" %>
-			<% when '5' %>
-			<%= "Kaohsiung" %>
-			<% when '6' %>
-			<%= "Eastern Taiwan" %>
+	<div>
+		<% @join.each do |join| %>
+	<span style="float:right;font-weight:bold;text-align:center; color:white;">
+			<%= join.user.name %>
+	</span>
 		<% end %>
-		</br>
+	</div>
 
-		Request Dealine: <%= @product.deadline %>
+		<span style = "color: #B4EEF5">Requester: <%= @product.user.name %></sapn>
 		</br>
-
-		Discriptions: <%= simple_format(@product.description) %>
+		<span style = "color: #B4EEF5">Product Name: <%= @product.productname %></sapn>
+		</br>
+		<span style = "color: #B4EEF5">Category:
+			<% case @product.category %>
+				<% when 'food' %>
+				<%= "Food" %>
+				<% when 'toiletries' %>
+				<%= "Toiletries" %>
+				<% when 'stationary' %>
+				<%= "Stationary" %>
+			<% end %>
+		</sapn>
+		</br>
+		<span style = "color: #B4EEF5">Quantity: <%= @product.quantity %></sapn>
+		</br>
+		<span style = "color: #B4EEF5">Max. Acceptable Price: <%= @product.maxprice %></sapn>
+		</br>
+		<span style = "color: #B4EEF5">		Location / District: 
+			<% case @product.location %>
+				<% when '1' %>
+				<%= "Taipei" %>
+				<% when '2' %>
+				<%= "HsinChu" %>
+				<% when '3' %>
+				<%= "Taichung" %>
+				<% when '4' %>
+				<%= "Tainan" %>
+				<% when '5' %>
+				<%= "Kaohsiung" %>
+				<% when '6' %>
+				<%= "Eastern Taiwan" %>
+			<% end %>
+		</sapn>
+		</br>
+		<span style = "color: #B4EEF5">Request Dealine: <%= @product.deadline %></sapn>
+		</br>
+		<span style = "color: #B4EEF5">Discriptions: <%= simple_format(@product.description) %></sapn>
+		</br>
 
 		<div id="fb-root"></div>
 		<script>
@@ -65,8 +101,10 @@
 
 		<div class="fb-comments" data-href=<%= "http://soa-svsb.herokuapp.com/product/#{@product.id}"%> data-width="600" data-numposts="5" data-colorscheme="light"></div>
 
-		<p><%= link_to 'Back to homepage', product_index_path %></p>
+		<div><%= link_to 'Back to homepage', product_index_path %></div>
+
+</div>
 
 </div>
 </div>
-</div>
+</center>

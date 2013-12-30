@@ -11,44 +11,6 @@
 					<p class="home_margin text-center home_font">See what you can buy in bulk today</p>
 					<input type="text" class="form-control" id="search_speciality" placeholder="Search for products">
 
-
-
-				</div>
-<%= button_to 'Search' %>
-			</div>
-	<!-- creates search bar -->
-
-		
-
-<div class="inc_container">
-	<div class="row">
-	<div class="heading_padding ">
-<center>
-		<p class="section_heading">Categories</p>
-</center>
-	</div>
-	</div>
-<div class="row component_padding_left">
-
-	 <div class="col-md-3 component_front component_margin_right component_margin_bottom ">
-    <img class="img-circle foodies" src="http://daxueconsulting.com/wp-content/uploads/2012/08/daxue-consulting-instant-noodles.jpg" />
-    <p class="foodie_name text-center">Food</p>
-	</div>
-
-    <div class="col-md-3 component_front component_margin_right component_margin_bottom ">
-    <img class="img-circle foodies" src="http://static2.stuff.co.nz/1363555512/214/8439214.jpg" />
-    <p class="foodie_name text-center">Toiletries</p>
-    </div>
-
-	<div class="col-md-3 component_front component_margin_right component_margin_bottom ">
-    <img class="img-circle foodies" src="http://www.rajahmundry.me/Rajamahendravaram/uploads/20120430103100-1160079293-Stationaries2.jpg" />
-    <p class="foodie_name text-center">Stationary</p>
-    
-	</div>
-
-</div>
-</div>
-
 <div>
 <% @product.each do |product| %>
   <li>
@@ -60,6 +22,52 @@
   </li>
 <% end %>
 </div>
+
+				</div>
+<!-- <%= button_to 'Search' %> -->
+			</div>
+	<!-- creates search bar -->
+
+
+<div class="inc_container">
+	<div class="row">
+	<div class="heading_padding ">
+<center>
+		<p class="section_heading">Categories</p>
+</center>
+	</div>
+	</div>
+
+<center>
+<div class="row component_padding_left">
+
+	 <div class="col-md-3 component_front component_margin_right component_margin_bottom ">
+		<a href="/product/index/1">
+		  <img class="img-circle foodies" src="http://daxueconsulting.com/wp-content/uploads/2012/08/daxue-consulting-instant-noodles.jpg" />
+		  <p class="foodie_name text-center">Food</p>
+		</a>
+	</div>
+
+    <div class="col-md-3 component_front component_margin_right component_margin_bottom ">
+		<a href="/product/index/2">
+		  <img class="img-circle foodies" src="http://static2.stuff.co.nz/1363555512/214/8439214.jpg" />
+		  <p class="foodie_name text-center">Toiletries</p>
+		</a>
+    </div>
+
+	<div class="col-md-3 component_front component_margin_right component_margin_bottom ">
+    <a href="/product/index/3">
+			<img class="img-circle foodies" src="http://www.rajahmundry.me/Rajamahendravaram/uploads/20120430103100-1160079293-Stationaries2.jpg" />
+		  <p class="foodie_name text-center">Stationary</p>
+		</a>
+	</div>
+
+</div>
+</center>
+
+</div>
+
+
 </div>
 </div>
 

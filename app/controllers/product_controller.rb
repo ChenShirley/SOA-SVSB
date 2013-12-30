@@ -4,6 +4,16 @@ class ProductController < ApplicationController
 
 	def index
   	@product = Product.all
+		@search = Product.all
+
+    page = params[:page]
+    if page == '1' #Food
+      @product= Product.where(:category=>'food')
+    elsif page == '2' #Toiletries
+			@product = Product.where(:category=>'toiletries')
+    elsif page == '3' #Stationary
+			@product = Product.where(:category=>'stationary')
+    end
 	end
 
 	def new
@@ -30,9 +40,8 @@ class ProductController < ApplicationController
 
 	def show
   	@product = Product.includes(:user).find(params[:id])
-
-  	@user = User.includes(:product).find(@product.id)
-
+		@buy = Buy.includes(:user).where(:product_id=>@product.id)
+		@join = Join.includes(:user).where(:product_id=>@product.id)
 		respond_to do |format|
 		  format.html # show.html.erb
 		  format.xml  { render :xml => @product }
@@ -47,6 +56,7 @@ class ProductController < ApplicationController
 	end
 
 	def search
+		@search = Product.where("productname=?",params[:product][:productname])
 	end
 
 end

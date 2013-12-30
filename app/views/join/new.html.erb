@@ -1,0 +1,29 @@
+<center>
+<div>
+<div class=" col-lg-8 center_overlay">
+	<div class ="col-lg 2 center_overlay">
+
+		<h2 style = "color: #73be60">I want to Join!</h2>
+</br>
+
+<%= form_for @join, :url => join_index_path, :product=>params[:product], :method => :post do |f| %>
+
+    
+		<span style = "color: #B4EEF5"><%= f.label :quantity, "Quantity" %>
+    <%= f.select :quantity,[['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],['9','9'],['10','10']] %>
+		</br>
+		
+    <span style = "color: #B4EEF5"><%= f.label :deadline, "My own Deadline" %></span>
+    <%= f.text_field :deadline %>
+
+    <%= f.hidden_field :product_id, :value => @product_id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+</br>
+    <%= f.submit "Create" %>
+<% end %>
+ 
+</div>
+
+</div>
+</div>
+</center>

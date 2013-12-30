@@ -16,12 +16,10 @@
 	    <div class="file-upload">
 	      <span class="file-upload-text">Upload Image</span>
 	                               </div>
-	      <input class="span" name="dish[attachment]" 
-	                                                       size="30" type="file" accept='image/*'>
+	      <%= f.file_field :pic, :class=>"span" %>
+<!--<input class="span" name="dish[attachment]" size="30" type="file" accept='image/*'>-->
 			</div>
-
-    <%= f.label :pic_id, "Picture Upload" %>
-   	<%= f.file_field :pic %>
+   	
 </div>
 
 <span style = "color: #B4EEF5"><%= f.label :productname, "Product Name" %>
@@ -29,7 +27,7 @@
 		</br>
 		</br>
 			   <%= f.label :category, "Category" %>
-    <%= f.select :category, [['Food','1'],['Toiletries','2'],['Stationary','3']] %>
+    <%= f.select :category, [['Food','food'],['Toiletries','toiletries'],['Stationary','stationary']] %>
 		</br>	
 </br>			
     <span style = "color: #B4EEF5"><%= f.label :quantity, "Quantity" %></span>
@@ -49,7 +47,7 @@
 		</br></br>
 
     <span style = "color: #B4EEF5"><%= f.label :description, "Description" %></span></br>
-    <%= f.text_area :description, :size=>"15x5" %>
+    <%= f.text_area :description, :size=>"30x2" %>
 		</br>
 
     <%= f.hidden_field :user_id, :value => current_user.id %>

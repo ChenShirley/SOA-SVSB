@@ -1,27 +1,64 @@
-<%= form_for @product, :url => product_path(@product.id), :method => :put do |f| %>
-    <%= f.label :productname, "Product Name" %>
+<center>
+<div>
+<div class=" col-lg-8 center_overlay">
+	<div class ="col-lg 2 center_overlay">
+
+		<h2 style = "color: #73be60">Edit Product</h2>
+</br>
+
+<%= form_for @product, :url => product_path(@product.id), :method => :post do |f| %>
+
+    
+<div class="col-lg-4 new_item_image_container">
+	
+	<!--<img src="http://speciality.r13.railsrumble.com/assets/default-new-item-e751e081746cd94c3b2e9fab290808e9.png" class="new_item_image">-->
+<%= image_tag @product.pic.url(:medium)  %>
+
+	<div class="custom-file-upload btn btn-success new_item_upload_button" >
+	    <div class="file-upload">
+	      <span class="file-upload-text">Upload Image</span>
+	                               </div>
+	      <%= f.file_field :pic, :class=>"span" %>
+<!--<input class="span" name="dish[attachment]" size="30" type="file" accept='image/*'>-->
+			</div>
+   	
+</div>
+
+<span style = "color: #B4EEF5"><%= f.label :productname, "Product Name" %>
     <%= f.text_field :productname %>
 		</br>
-  <%= f.label :category, "Category" %>
-    <%= f.select :category, [['Food','1'],['Toiletries','2'],['Stationary','3']] %>
 		</br>
-    <%= f.label :pic_id, "Picture Upload" %>
-   	<%= f.file_field :pic %>
-		</br>
-    <%= f.label :quantity, "Quantity" %>
+			   <%= f.label :category, "Category" %>
+    <%= f.select :category, [['Food','food'],['Toiletries','toiletries'],['Stationary','stationary']] %>
+		</br>	
+</br>			
+    <span style = "color: #B4EEF5"><%= f.label :quantity, "Quantity" %></span>
     <%= f.select :quantity,[['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],['9','9'],['10','10']] %>
-		</br>
-    <%= f.label :maxprice, "Max Price" %>
+		</br></br>
+
+    <span style = "color: #B4EEF5"><%= f.label :maxprice, "Max Price" %></span>
     <%= f.text_field :maxprice %>
-		</br>
-    <%= f.label :location, "Location" %>
+		</br></br>
+
+    <span style = "color: #B4EEF5"><%= f.label :location, "Location" %></span>
     <%= f.select :location, [['Taipei','1'],['HsinChu','2'],['Taichung','3'],['Tainan','4'],['Kaohsiung','5'],['Eastern Taiwan','6']] %>
-		</br>
-    <%= f.label :deadline, "Deadline" %>
+		</br></br>
+
+    <span style = "color: #B4EEF5"><%= f.label :deadline, "Deadline" %></span>
     <%= f.text_field :deadline %>
+		</br></br>
+
+    <span style = "color: #B4EEF5"><%= f.label :description, "Description" %></span></br>
+    <%= f.text_area :description, :size=>"30x2" %>
 		</br>
-    <%= f.label :description, "Description" %>
-    <%= f.text_area :description, :size=>"15x5" %>
-		</br>
+
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+</br>
     <%= f.submit "Update" %>
 <% end %>
+ 
+</div>
+
+</div>
+</div>
+</center>

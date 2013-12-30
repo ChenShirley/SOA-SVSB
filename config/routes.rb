@@ -3,7 +3,18 @@ SoaSvsb::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
 	root :to => "product#index"
+
+  post "product/:id"=>"product#show"
+  post "product/search"=>"product#search"
+  get "product/search"=>"product#search"
+  get "product/index/:page"=>"product#index"
 	resources :product
+
+  get "buy/:product"=>"buy#new"
+	resources :buy
+
+  get "join/:product"=>"join#new"
+	resources :join
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
