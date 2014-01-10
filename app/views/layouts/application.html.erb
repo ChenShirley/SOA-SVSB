@@ -14,7 +14,7 @@
         <div class="container my_container_header">
                 <div class="navbar-header">
                    
-			<a>
+			<a href="/product">
 <img class="logo_brand"  style="width:100px;" src=http://lipshipsandfashiontips.files.wordpress.com/2013/04/lovebulkbutton.png>
 			</a>
 <!--Love Bulk Logo image-->
@@ -37,10 +37,9 @@
 				<li class="navbar_list">
 
 <% if current_user %>
-	<%= link_to('logout', destroy_user_session_path, :method => :delete, :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
-
+	<%= link_to('Logout', destroy_user_session_path, :method => :delete, :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
 <% else %>
-	<%= link_to('sign up', new_registration_path(:user), :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
+	<%= link_to('Sign Up', new_registration_path(:user), :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
 <% end %>
                               
                                 </li>
@@ -53,7 +52,7 @@
 <% if current_user %>
 	<%= link_to('modify password', edit_registration_path(:user), :class=>"btn btn-danger header_btn", :id=>"login") %>
 <% else %>
-	<%= link_to('login', new_session_path(:user), :class=>"btn btn-danger header_btn", :id=>"login") %>
+	<%= link_to('Login', new_session_path(:user), :class=>"btn btn-danger header_btn", :id=>"login") %>
 <% end %>
                                               
                                                                                
@@ -98,6 +97,14 @@
 
 <!-- Content from other pages will appear in this yield area infront of the background image-->
 
+
+			<div class="carousel-caption">
+				<p class=" text-center caption_font">"Subtle, mellow and unique. I was thinking about it all day"</p>
+				<b>
+					<p class="carousel-dish-name">Herb Onion Salad</p>
+				</b>
+			</div>
+		
                                 
                
                 </div>

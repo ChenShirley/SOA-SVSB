@@ -14,4 +14,15 @@ class BuyController < ApplicationController
 		redirect_to product_path(@buy.product_id)
 	end
 
+	def edit
+  	@buy = Buy.find(params[:id])
+	end
+
+	def update
+  	@buy = Buy.find(params[:id])
+		@buy.update_attributes(params[:buy])
+
+		redirect_to backstage_index_path
+	end
+
 end

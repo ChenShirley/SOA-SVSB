@@ -1,0 +1,2 @@
+class BackstageController < ApplicationController
+end

@@ -4,5 +4,14 @@ has_attached_file :pic, :styles =>
         { :medium => "300x300>", :thumb => "100x100>" }
 #has_attached_file :attach
 
+#search bar
+  def self.search(search)  
+    if search  
+      find(:all, :conditions => ['productname LIKE ?', "%#{search}%"])  
+    else  
+      find(:all)  
+    end  
+  end 
+
 	belongs_to :user
 end

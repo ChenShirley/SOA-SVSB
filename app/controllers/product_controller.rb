@@ -4,7 +4,7 @@ class ProductController < ApplicationController
 
 	def index
   	@product = Product.all
-		@search = Product.all
+		@product = Product.search(params[:search]) 
 
     page = params[:page]
     if page == '1' #Food
