@@ -4,23 +4,32 @@ class BuyController < ApplicationController
 
 	def new
   	@buy = Buy.new
-		@product_id = params[:product]
+		@product = Product.find(params[:product])
 	end
 
 	def create
 		@buy = Buy.new(params[:buy])
-		@buy.save
-
+		if @buy.save
+			@product = Product.find(@buy.product_id)
+			@product.update_attributes(:buy_id=>@buy.id)
+		end
 		redirect_to product_path(@buy.product_id)
 	end
 
 	def edit
-  	@buy = Buy.find(params[:id])
+  	@buy = Buy.includes(:product).find(params[:id])
 	end
 
 	def update
   	@buy = Buy.find(params[:id])
 		@buy.update_attributes(params[:buy])
+
+		redirect_to backstage_index_path
+	end
+
+	def destroy
+		@buy = Buy.find(params[:id])
+		@buy.destroy
 
 		redirect_to backstage_index_path
 	end

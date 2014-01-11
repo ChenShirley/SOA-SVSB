@@ -22,8 +22,9 @@ class ProductController < ApplicationController
 
 	def create
 		@product = Product.new(params[:product])
-		@product.save
-
+		if @product.save
+			Join.create(:quantity=>@product.quantity, :deadline=>@product.deadline, :user_id=>@product.user.id, :product_id=>@product.id)
+		end
 		redirect_to product_index_path
 	end
 
@@ -35,12 +36,14 @@ class ProductController < ApplicationController
 		@product = Product.find(params[:id])
 		@product.update_attributes(params[:product])
 
-		redirect_to product_path(@product) # action=> :show
+		#redirect_to product_path(@product)
+		# action=> :show
+		redirect_to backstage_index_path
 	end
 
 	def show
   	@product = Product.includes(:user).find(params[:id])
-		@buy = Buy.includes(:user).where(:product_id=>@product.id)
+		@buy = Buy.find(@product.buy_id)
 		@join = Join.includes(:user).where(:product_id=>@product.id)
 		respond_to do |format|
 		  format.html # show.html.erb
@@ -52,11 +55,7 @@ class ProductController < ApplicationController
 		@product = Product.find(params[:id])
 		@product.destroy
 
-		redirect_to product_index_path
-	end
-
-	def search
-		@search = Product.where("productname=?",params[:product][:productname])
+		redirect_to backstage_index_path
 	end
 
 end

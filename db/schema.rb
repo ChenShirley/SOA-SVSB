@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20131229184549) do
     t.string   "location"
     t.string   "deadline"
     t.integer  "user_id"
+    t.integer  "buy_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "pic_file_name"

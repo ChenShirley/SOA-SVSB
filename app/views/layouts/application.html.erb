@@ -1,115 +1,68 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>GrouPurchase</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <head>
+        <title>GrouPurchase</title>
+        <%=stylesheet_link_tag "application", :media=>"all" %>
+        <%=javascript_include_tag "application" %>
+        <%=csrf_meta_tags %>
+    </head>
+    
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <!-- Navigator section -->
+            <div class="container my_container_header">
+                <div class="navbar-header">	
+									<a href="/product">
+										<img class="logo_brand"  style="width:100px;" src="http://lipshipsandfashiontips.files.wordpress.com/2013/04/lovebulkbutton.png">
+									</a>
 
-  <nav class="navbar navbar-default" role="navigation">
-        <!-- Navigator section -->
-
-        <div class="container my_container_header">
-                <div class="navbar-header">
-                   
-			<a href="/product">
-<img class="logo_brand"  style="width:100px;" src=http://lipshipsandfashiontips.files.wordpress.com/2013/04/lovebulkbutton.png>
-			</a>
-<!--Love Bulk Logo image-->
-                                                 
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                        </button>
+                    <!--Love Bulk Logo image-->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+											<span class="sr-only">Toggle navigation</span>
+										 <span class="icon-bar"></span>
+										 <span class="icon-bar"></span>
+										 <span class="icon-bar"></span>
+                    </button>
                 </div>
                 <!-- creates and places the three buttons to top right of the navigation bar (login, sign up and new product) -->
-
-
-               
                 <div class="collapse header_collapse navbar-collapse navbar-ex1-collapse">
-
-			<ul class="nav navbar-nav navbar-right ">
-                       	
-				<li class="navbar_list">
-
-<% if current_user %>
-	<%= link_to('Logout', destroy_user_session_path, :method => :delete, :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
-<% else %>
-	<%= link_to('Sign Up', new_registration_path(:user), :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
-<% end %>
-                              
-                                </li>
-  <!-- Creates hyperlink for sign up button to open sign up page and will appear as log out when user is signed in-->
-                               
-
-	<li class="navbar_list">
-		<div class="dropdown">
-
-<% if current_user %>
-	<%= link_to('modify password', edit_registration_path(:user), :class=>"btn btn-danger header_btn", :id=>"login") %>
-<% else %>
-	<%= link_to('Login', new_session_path(:user), :class=>"btn btn-danger header_btn", :id=>"login") %>
-<% end %>
-                                              
-                                                                               
-		</div>
-	</li>
-
-<!-- Creates hyperlink for login button to open login page and will appear as modify password when user is loged in-->
-	
-
-	<li class="navbar_list">
-        <div class="dropdown">
-                               
- <%= link_to('New product', new_product_path, :class=>"btn btn-danger", :id=>"my-account") %>
-
-	</div>
-	</li> 
-<!-- Creates hyperlink for new product button to open new product page-->  
-
-        <!-- /.navbar-collapse -->                   
-                        </ul>
+                    <ul class="nav navbar-nav navbar-right ">
+                        <li class="navbar_list">
+                            <% if current_user %>
+                                <%=link_to( 'Logout', destroy_user_session_path, :method=>:delete, :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
+                            <% else %>
+                                <%=link_to( 'Sign Up', new_registration_path(:user), :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
+                            <% end %>
+                        </li>
+                        <!-- Creates hyperlink for sign up button to open sign up page and will appear as log out when user is signed in-->
+                        <li class="navbar_list">
+                            <div class="dropdown">
+                                <% if current_user %>
+																		<%= link_to('My Page', backstage_index_path, :class=>"btn btn-danger header_btn", :id=>"login") %>
+                                <% else %>
+                                    <%=link_to( 'Login', new_session_path(:user), :class=>"btn btn-danger header_btn", :id=>"login") %>
+                                <% end %>
+                            </div>
+                        </li>
+                        <!-- Creates hyperlink for login button to open login page and will appear as modify password when user is loged in-->
+                        <li class="navbar_list">
+                            <div class="dropdown">
+                                <%=link_to( 'New product', new_product_path, :class=>"btn btn-danger", :id=>"my-account") %>
+														</div>
+                        </li>
+                        <!-- Creates hyperlink for new product button to open new product page-->
+                        <!-- /.navbar-collapse -->
+                    </ul>
                 </div>
-        </div>
-        <!-- /.navbar-collapse -->
-</nav>
- 
-  
-<div id="carousel-example-generic" class="carousel slide carousel_home">
-
-
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
         <!-- Wrapper for slides -->
-       
-        <div class="carousel-inner">
-                <div class="item active bg_image1">
+        <!-- You can change the background picture of every page by changing the url of the bg_image class name here and adding the url of that class on the app.css. I am currently using bg_image1 (homepage) and bg_image2. bg_image3-5 are free so you can change the urls for these classes -->
 
-<!-- You can change the background picture of every page by changing the url of the bg_image class name here and adding the url of that class on the app.css. I am currently using bg_image1 (homepage) and bg_image2. bg_image3-5 are free so you can change the urls for these classes -->
-
-<p></p>
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-			<%= yield %>
-
-<!-- Content from other pages will appear in this yield area infront of the background image-->
-
-
-			<div class="carousel-caption">
-				<p class=" text-center caption_font">"Subtle, mellow and unique. I was thinking about it all day"</p>
-				<b>
-					<p class="carousel-dish-name">Herb Onion Salad</p>
-				</b>
-			</div>
-		
-                                
-               
-                </div>
-        </div>
-</div>
-
-</body>
+<%=notice %>
+<%=alert %>
+<%=yield %>
+            <!-- Content from other pages will appear in this yield area infront of the background image-->
+    </body>
 </html>

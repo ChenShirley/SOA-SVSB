@@ -19,31 +19,36 @@
 	</br>
 	</br>
 
+	<!-- be a buyer -->
 	<div>
-		<% @buy.each do |buy| %>
 	<span style="float:right;font-weight:bold;text-align:center; color:white;">
-			<%= buy.user.name %>
+			<%= image_tag "http://graph.facebook.com/#{@buy.user.uid}/picture?type=small" %>
 	</span>
-		<% end %>
 	</div>
 
 
+<% if @product.buy_id!=nil and @buy.quantity>@product.quantity %>
 	<div style="text-align:center;margin-bottom:20px;height:28px;font-size:13px;border:1px solid #73be60;background-color:#73be60;float:right;cursor:pointer;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;">
 		<span style="float:right;font-weight:bold;text-align:center;">
 			 <%= link_to('I want to join', :controller=>"join", :action=>"new", :product=>@product.id) %>
 		</span>
 	</div>
+<% end %>
+
 </div>
 	</br>
 	</br>
 
+<% if @product.buy_id!=nil and @buy.quantity>@product.quantity %>
 	<div>
 		<% @join.each do |join| %>
 	<span style="float:right;font-weight:bold;text-align:center; color:white;">
 			<%= join.user.name %>
+			<%= image_tag "http://graph.facebook.com/#{join.user.uid}/picture?type=small" %>
 	</span>
 		<% end %>
 	</div>
+<% end %>
 
 		<span style = "color: #B4EEF5">Requester: <%= @product.user.name %></sapn>
 		</br>

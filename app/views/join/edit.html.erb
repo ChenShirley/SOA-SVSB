@@ -6,14 +6,14 @@
 		<h2 style = "color: #73be60">Product Information</h2>
 </br>
 
-Product Name: <%= @buy.product.productname %>
+Product Name: <%= @join.product.productname %>
 </br>
-Product Description: <%= @buy.product.description %>
+Product Description: <%= @join.product.description %>
 </br>
-Maxprice of Product: $<%= @buy.product.maxprice %>
+Maxprice of Product: $<%= @join.product.maxprice %>
 </br>
 Location / District:
-	<% case @buy.product.location %>
+	<% case @join.product.location %>
 		<% when '1' %>
 		<%= "Taipei" %>
 		<% when '2' %>
@@ -28,21 +28,21 @@ Location / District:
 		<%= "Eastern Taiwan" %>
 	<% end %>
 </br>
-Deadline: <%= @buy.product.deadline %>
+Deadline: <%= @join.product.deadline %>
 
 </br>
 </br>
 
-		<h2 style = "color: #73be60">Edit Buyer Information</h2>
+		<h2 style = "color: #73be60">Edit Join Information</h2>
 </br>
-<%= form_for @buy, :url => buy_path(@buy.id), :method => :put do |f| %>
+<%= form_for @join, :url => join_path(@join.id), :method => :put do |f| %>
 
-		<span style = "color: #B4EEF5"><%= f.label :quantity, "How many I can buy" %>
+		<span style = "color: #B4EEF5"><%= f.label :quantity, "Quantity" %>
     <%= f.select :quantity,[['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],['9','9'],['10','10']] %>
 		</br>
 		
-    <span style = "color: #B4EEF5"><%= f.label :place, "Where can I give product" %></span>
-    <%= f.text_field :place %>
+    <span style = "color: #B4EEF5"><%= f.label :deadline, "My own Deadline" %></span>
+    <%= f.text_field :deadline %>
 
     <%= f.hidden_field :user_id, :value => current_user.id %>
 </br>

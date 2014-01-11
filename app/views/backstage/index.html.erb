@@ -1,80 +1,46 @@
-<div id="carousel-example-generic" class="carousel slide carousel_home">
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-                <div class="item active bg_image1">
+<%= link_to('modify password', edit_registration_path(:user)) %>
 
+<h2>Product Request List</h2>
+<% @product.each do |product| %>
+<%= product.productname %>
+</br>
+<%= product.quantity %>
+</br>
+<%= link_to 'Show', product_path(product.id) %>
+</br>
+<%= link_to 'Edit', edit_product_path(product.id) %>
+</br>
+<%= link_to 'Delete', product_path(product.id), :method => :delete %>
+</br>
+</br>
+<% end %>
 
-<!--creates space between Welcom message and search bar -->
+<h2>Join List</h2>
+<% @join.each do |join| %>
+<%= join.product.productname %>
+</br>
+<%= join.quantity %>
+</br>
+<%= link_to 'Show', product_path(join.product_id) %>
+</br>
+<%= link_to 'Edit', edit_join_path(join.id) %>
+</br>
+<%= link_to 'Delete', join_path(join.id), :method => :delete %>
+</br>
+</br>
+<% end %>
 
-			<div class=" col-lg-8 center_overlay">
-				<div class="form-group">
-					<p class="home_margin text-center home_font">See what you can buy in bulk today</p>
-
-		<%= form_tag product_index_path, :method => :get do %>  
-			<p>  
-				<%= text_field_tag :search, params[:search], :class=>"form-control", :id=>"search_speciality", :placeholder=>"Search for products" %>  
-				<%= submit_tag "Search", :productname => nil %>
-		</p>
-		<% end %>
-
-
-		<div>
-		<% @product.each do |product| %>
-			<li>
-			<%= product.productname %>
-
-			<%= link_to 'Show', product_path(product.id) %>
-			<%= link_to 'Edit', edit_product_path(product.id) %>
-			<%= link_to 'Delete', product_path(product.id), :method => :delete %>
-			</li>
-		<% end %>
-		</div>
-
-				</div>
-
-			</div>
-	<!-- creates search bar -->
-
-
-<div class="inc_container">
-	<div class="row">
-	<div class="heading_padding ">
-<center>
-		<p class="section_heading">Categories</p>
-</center>
-	</div>
-	</div>
-
-<center>
-<div class="row component_padding_left">
-
-	 <div class="col-md-3 component_front component_margin_right component_margin_bottom ">
-		<a href="/product/index/1">
-		  <img class="img-circle foodies" src="http://daxueconsulting.com/wp-content/uploads/2012/08/daxue-consulting-instant-noodles.jpg" />
-		  <p class="foodie_name text-center">Food</p>
-		</a>
-	</div>
-
-    <div class="col-md-3 component_front component_margin_right component_margin_bottom ">
-		<a href="/product/index/2">
-		  <img class="img-circle foodies" src="http://static2.stuff.co.nz/1363555512/214/8439214.jpg" />
-		  <p class="foodie_name text-center">Toiletries</p>
-		</a>
-    </div>
-
-	<div class="col-md-3 component_front component_margin_right component_margin_bottom ">
-    <a href="/product/index/3">
-			<img class="img-circle foodies" src="http://www.rajahmundry.me/Rajamahendravaram/uploads/20120430103100-1160079293-Stationaries2.jpg" />
-		  <p class="foodie_name text-center">Stationary</p>
-		</a>
-	</div>
-
-</div>
-</center>
-
-</div>
-
-
-</div>
-</div>
-
+<h2>Buyer List</h2>
+<% @buy.each do |buy| %>
+<%= buy.product.productname %>
+</br>
+<%= buy.quantity %>
+</br>
+<%= link_to 'Show', product_path(buy.product_id) %>
+</br>
+<%= link_to 'Edit', edit_buy_path(buy.id) %>
+</br>
+<%= link_to 'Delete', buy_path(buy.id), :method => :delete %>
+</br>
+</br>
+<% end %>
