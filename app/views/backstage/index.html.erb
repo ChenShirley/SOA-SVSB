@@ -1,3 +1,11 @@
+<% if admin_sign_in? AND %>
+
+
+
+<% else if user_sign_in? AND   %>
+
+
+<% end %>
 <center>
 <div>
 <div class=" col-lg-8 center_overlay">
@@ -7,64 +15,39 @@
 
 <h3 style = "color: #B4EEF5"><%= link_to('modify profile', edit_user_registration_path) %></h3>
 
-      
-<h2 style = "color: #B4EEF5">Product Request List</h2>
-<div class="CSSTableGenerator" >
-                <table >
-                    <tr>
-                        <td>
-                            Product Name
-                        </td>
-                        <td >
-                            Quantity
-                        </td>
-                        <td>
-                            Management
-                        </td>
-                    </tr>
-<% @product.each do |product| %>
-                    <tr>
-                        <td >
-                           <%= product.productname %>
-                        </td>
-                        <td>
-                            <%= product.quantity %>
-                        </td>
-                        <td>
-                            <%= link_to 'Show', product_path(product.id) %> <%= link_to 'Edit', edit_product_path(product.id) %> <%= link_to 'Delete', product_path(product.id), :method => :delete %>
-                        </td>
-                    </tr>
-          <% end %>
-                </table>
-            </div>
-</br>
-
-
 <h2 style = "color: #B4EEF5">Join List</h2>
 <div class="CSSTableGenerator" >
                 <table >
                     <tr>
-                        <td>
-                            Product Name
-                        </td>
-                        <td >
-                            Quantity
-                        </td>
-                        <td>
-                            Management
-                        </td>
+                        <td>Product Name</td>
+                        <td>Quantity</td>
+                        <td>Management</td>
+                        <td>My Request?</td>
                     </tr>
-<% @join.each do |join| %>
+
+				<% @myrequest.each do |myrequest| %>
                     <tr>
-                        <td >
-                           <%= join.product.productname %>
+                        <td>
+                           <%= myrequest.product.productname %>
                         </td>
                         <td>
-                            <%= join.quantity %>
+                            <%= myrequest.quantity %>
                         </td>
+                        <td>
+                            <%= link_to 'Show', product_path(myrequest.product_id) %> <%= link_to 'Edit', edit_product_path(myrequest.product_id) %> <%= link_to 'Delete', product_path(myrequest.product_id), :method => :delete %>
+                        </td>
+                        <td>Yes</td>
+                    </tr>
+          <% end %>
+
+				<% @join.each do |join| %>
+                    <tr>
+                        <td><%= join.product.productname %></td>
+                        <td><%= join.quantity %></td>
                         <td>
                             <%= link_to 'Show', product_path(join.product_id) %> <%= link_to 'Edit', edit_join_path(join.id) %> <%= link_to 'Delete', join_path(join.id), :method => :delete %>
                         </td>
+                        <td>No</td>
                     </tr>
           <% end %>
                 </table>
@@ -103,9 +86,10 @@
             </div>
 </br>
 
-
-
-</div>
+	</div>
 </div>
 </div>
 </center>
+
+
+

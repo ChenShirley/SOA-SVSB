@@ -23,3 +23,10 @@
     <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
   <% end -%>
 <% end -%>
+
+<% if admin_signed_in? %>
+	<%=link_to( 'Admin Logout', destroy_admin_session_path, :method=>:delete) %><br />
+<% else %>
+	<%=link_to( 'Admin Sign Up', new_admin_registration_path) %><br />
+	<%=link_to( 'Admin Login', new_admin_session_path) %><br />
+<% end %>
