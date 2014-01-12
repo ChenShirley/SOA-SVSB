@@ -70,7 +70,7 @@
                             <%= buy.quantity %>
                         </td>
                         <td>
-                            <%= link_to 'Show', product_path(buy.product_id) %> <%= link_to 'Edit', edit_buy_path(buy.id) %> <%= link_to 'Delete', buy_path(buy.id), :method => :delete %>
+                            <%= link_to 'Show', product_path(buy.product_id) %> <%= link_to 'Edit', edit_buy_path(buy.id) %> <%#= link_to 'Delete', buy_path(buy.id), :method => :delete %>
                         </td>
                     </tr>
           <% end %>

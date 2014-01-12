@@ -11,6 +11,7 @@ class CreateProducts < ActiveRecord::Migration
 			t.integer :user_id
 			t.integer :buy_id
 			t.integer :status, :default=>1
+			t.integer :restday
 
       t.timestamps
     end

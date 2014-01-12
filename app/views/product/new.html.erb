@@ -23,7 +23,7 @@
 </div>
 
 <span style = "color: #B4EEF5"><%= f.label :productname, "Product Name" %>
-    <%= f.text_field :productname %>
+    <%= f.text_field :productname, :placeholder=>"ex. book" %>
 		</br>
 		</br>
 			   <%= f.label :category, "Category" %>
@@ -35,7 +35,7 @@
 		</br></br>
 
     <span style = "color: #B4EEF5"><%= f.label :maxprice, "Max Price" %></span>
-    <%= f.text_field :maxprice %>
+    <%= f.text_field :maxprice, :placeholder=>"ex. 250" %>
 		</br></br>
 
     <span style = "color: #B4EEF5"><%= f.label :location, "Location" %></span>
@@ -43,11 +43,11 @@
 		</br></br>
 
     <span style = "color: #B4EEF5"><%= f.label :deadline, "Deadline" %></span>
-    <%= f.text_field :deadline %>
+    <%= f.text_field :deadline, :placeholder=>"ex. 2014-01-01 23:59" %>
 		</br></br>
 
     <span style = "color: #B4EEF5"><%= f.label :description, "Description" %></span></br>
-    <%= f.text_area :description, :size=>"30x2" %>
+    <%= f.text_area :description, :size=>"30x2", :placeholder=>"ex. Pride and Prejudice" %>
 		</br>
 
     <%= f.hidden_field :user_id, :value => current_user.id %>

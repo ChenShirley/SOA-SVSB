@@ -1,104 +1,167 @@
-
 <!--creates space between Welcom message and search bar -->
 <div class="item active bg_image1" style="height:580px;">
 </br></br></br></br></br></br>
-            <div class=" col-lg-8 center_overlay">
-                <div class="form-group">
-			
-                    <p class="home_margin text-center home_font">See what you can buy in bulk today</p>
-                    <%=form_tag product_index_path, :method=>:get do %>
-                        <p>
-                            <%=text_field_tag :search, params[:search], :class=>"form-control", :id=>"search_speciality", :placeholder=>"Search for products" %>
-                                <%=submit_tag "Search", :productname=>nil %></p>
-                        <% end %>
+    <div class=" col-lg-8 center_overlay">
+        <div class="form-group">
+
+            <p class="home_margin text-center home_font">See what you can buy in bulk today</p>
+            <%=form_tag product_index_path, :method=>:get do %>
+                <p>
+										<%=text_field_tag :search, params[:search], :class=>"form-control", :id=>"search_speciality", :placeholder=>"Search for products" %>
+                    <%=submit_tag "Search", :productname=>nil %>
+								</p>
+            <% end %>
                            
-                            </br>
-                            
-                </div>
-            </div>
-            <!-- creates search bar -->
+            </br>           
+        </div>
+    </div>
 </div>
-    
+<!-- creates search bar -->
 
-
-	
 <div class="carousel-caption">
-				<p class=" text-center caption_font">"What do you want to buy today?"</p>
-				<b>
-					<p class="carousel-dish-name">SVSB</p>
-				</b>
-			</div>
+	<p class=" text-center caption_font">"What do you want to buy today?"</p>
+	<b>
+		<p class="carousel-dish-name">SVSB</p>
+	</b>
+</div>
 
 
-            <div class="inc_container">
-                <div class="row">
-                    <div class="heading_padding ">
-                        
-                            <p class="section_heading">Categories</p>
-                        
-                    </div>
-                </div>
+<!-- creates Categories --> 
+<div class="inc_container">
+    <div class="row">
+        <div class="heading_padding ">
+        		<p class="section_heading">Categories</p>
+        </div>
+    </div>
+
+    <div class="row component_padding_left">
+        <div class="col-md-3 component_front component_margin_right component_margin_bottom ">
+					<a href="/product/index/1">
+						<img class="img-circle foodies" src="http://daxueconsulting.com/wp-content/uploads/2012/08/daxue-consulting-instant-noodles.jpg" />
+						<p class="foodie_name text-center">Food</p>
+					</a>
+    		</div>
+    		<div class="col-md-3 component_front component_margin_right component_margin_bottom ">
+					<a href="/product/index/2">
+						<img class="img-circle foodies" src="http://static2.stuff.co.nz/1363555512/214/8439214.jpg" />
+						<p class="foodie_name text-center">Toiletries</p>
+					</a>
+				</div>
+        <div class="col-md-3 component_front component_margin_right component_margin_bottom ">
+					<a href="/product/index/3">
+						<img class="img-circle foodies" src="http://www.rajahmundry.me/Rajamahendravaram/uploads/20120430103100-1160079293-Stationaries2.jpg" />
+						<p class="foodie_name text-center">Stationary</p>
+					</a>
+    		</div>
+    </div>
+</div>
+<!-- Categories end --> 
 
 
- 
-                    <div class="row component_padding_left">
-                        <div class="col-md-3 component_front component_margin_right component_margin_bottom ">	<a href="/product/index/1">
-		  <img class="img-circle foodies" src="http://daxueconsulting.com/wp-content/uploads/2012/08/daxue-consulting-instant-noodles.jpg" />
-		  <p class="foodie_name text-center">Food</p>
-		</a>
+<div class="inc_container">
+    <div class="row">
+        <div class="heading_padding ">
+                <p class="section_heading">All Requests</p>
+        </div>
+    </div>
 
-                        </div>
-                        <div class="col-md-3 component_front component_margin_right component_margin_bottom ">	<a href="/product/index/2">
-		  <img class="img-circle foodies" src="http://static2.stuff.co.nz/1363555512/214/8439214.jpg" />
-		  <p class="foodie_name text-center">Toiletries</p>
-		</a>
-
-                        </div>
-                        <div class="col-md-3 component_front component_margin_right component_margin_bottom "> <a href="/product/index/3">
-			<img class="img-circle foodies" src="http://www.rajahmundry.me/Rajamahendravaram/uploads/20120430103100-1160079293-Stationaries2.jpg" />
-		  <p class="foodie_name text-center">Stationary</p>
-		</a>
- 
-           
-                    </div>
-                
-
-             </div>
-<div class="carousel-caption">
-				<p class=" text-center caption_font">"What do you want to buy today?"</p>
-				<b>
-					<p class="carousel-dish-name">SVSB</p>
-				</b>
-			</div>
-
-
-            <div class="inc_container">
-                <div class="row">
-                    <div class="heading_padding ">
-                        
-                            <p class="section_heading">Requests</p>
-                        
-                    </div>
-                </div>
 <% @product.each do |product| %>
-<div style="float:left; width:250px;">
-               <div class="col-md-3 component_front component_margin_right component_margin_bottom ">	
-		   <%= image_tag product.pic.url(:medium) , :class=>"img-circle foodies"%>
-		 
-<p class="foodie_name text-center"><%= link_to "#{product.productname}", product_path(product.id) %></p>
+	<div style="float:left; width:250px;">
+			<div class="col-md-3 component_front component_margin_right component_margin_bottom ">	
+					<%= image_tag product.pic.url(:medium) , :class=>"img-circle foodies"%>
+					<p class="foodie_name text-center">
+							<%= link_to "#{product.productname}", product_path(product.id) %>
+					</p>
+					<p class="foodie_name text-center">
+							Rest <%= product.restday %> days
+					</p>
+			</div>
+	</div>
+<% end %>
 </div>
-	
 
+<div class="inc_container">
+    <div class="row">
+        <div class="heading_padding ">
+                <p class="section_heading">Requests Wait for Buyer</p>
+        </div>
+    </div>
+<% if !@waitbuy.nil? %>
+<% @waitbuy.each do |product| %>
+	<div style="float:left; width:250px;">
+			<div class="col-md-3 component_front component_margin_right component_margin_bottom ">	
+					<%= image_tag product.pic.url(:medium) , :class=>"img-circle foodies"%>
+					<p class="foodie_name text-center">
+							<%= link_to "#{product.productname}", product_path(product.id) %>
+					</p>
+					<p class="foodie_name text-center">
+							Rest <%= product.restday %> days
+					</p>
+			</div>
+	</div>
+<% end %>
+<% end %>
 </div>
 
-	<% end %>
-
-
-
-
-
-
-
-
+<div class="inc_container">
+    <div class="row">
+        <div class="heading_padding ">
+                <p class="section_heading">Requests Wait for Joiner</p>
+        </div>
+    </div>
+<% if !@waitjoin.nil? %>
+<% @waitjoin.each do |product| %>
+	<div style="float:left; width:250px;">
+			<div class="col-md-3 component_front component_margin_right component_margin_bottom ">	
+					<%= image_tag product.pic.url(:medium) , :class=>"img-circle foodies"%>
+					<p class="foodie_name text-center">
+							<%= link_to "#{product.productname}", product_path(product.id) %>
+					</p>
+					<p class="foodie_name text-center">
+							Rest <%= product.restday %> days
+					</p>
+			</div>
+	</div>
+<% end %>
+<%end%>
 </div>
+
+<div class="inc_container">
+    <div class="row">
+        <div class="heading_padding ">
+                <p class="section_heading">Successful Requests</p>
+        </div>
+    </div>
+<% if !@success.nil? %>
+<% @success.each do |product| %>
+	<div style="float:left; width:250px;">
+			<div class="col-md-3 component_front component_margin_right component_margin_bottom ">	
+					<%= image_tag product.pic.url(:medium) , :class=>"img-circle foodies"%>
+					<p class="foodie_name text-center">
+							<%= link_to "#{product.productname}", product_path(product.id) %>
+					</p>
+			</div>
+	</div>
+<% end %>
+<% end %>
+</div>
+
+<div class="inc_container">
+    <div class="row">
+        <div class="heading_padding ">
+                <p class="section_heading">Unsuccessful Requests</p>
+        </div>
+    </div>
+<% if !@unsuccess.nil? %>
+<% @unsuccess.each do |product| %>
+	<div style="float:left; width:250px;">
+			<div class="col-md-3 component_front component_margin_right component_margin_bottom ">	
+					<%= image_tag product.pic.url(:medium) , :class=>"img-circle foodies"%>
+					<p class="foodie_name text-center">
+							<%= link_to "#{product.productname}", product_path(product.id) %>
+					</p>
+			</div>
+	</div>
+<% end %>
+<% end %>
 </div>

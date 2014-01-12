@@ -14,6 +14,36 @@ class ProductController < ApplicationController
     elsif page == '3' #Stationary
 			@product = Product.where(:category=>'stationary')
     end
+
+  t = Thread.new do
+    while(true) do
+      sleep 60
+			DateTime.parse(product.deadline).strftime("%Y/%m/%d %H:%M")
+			@product = Product.all
+			@product.each do |data|
+				data.update_attributes!(:restday=>(DateTime.parse("data.deadline")-DateTime.now).to_i)
+			end
+
+			@waitjoin = Product.where(:status=>2)
+			@waitjoin.each do |data|
+				sum = Join.where(:product_id=>data.id).sum(:quantity)
+				buy = Buy.where(:product_id=>data.id)
+
+				if buy[0].quantity == sum and DateTime.parse(data.deadline).to_i >= DateTime.now.to_i
+						data.update_attributes!(:status=>3)
+				elsif buy[0].quantity >= sum and DateTime.parse(data.deadline).to_i < DateTime.now.to_i
+						data.update_attributes!(:status=>4)
+				else
+						data.update_attributes!(:status=>2)
+				end
+
+			end
+		end
+	end
+
+	@waitbuy = Product.where(:status=>1)
+	@success = Product.where(:status=>3)
+	@unsuccess = Product.where(:status=>4)
 	end
 
 	def new
@@ -24,6 +54,7 @@ class ProductController < ApplicationController
 		@product = Product.new(params[:product])
 		if @product.save
 			Join.create(:quantity=>@product.quantity, :user_id=>@product.user.id, :product_id=>@product.id, :productrequest=>true)
+			@product.update_attributes!(:restday=>(DateTime.parse("#{@product.deadline}")-DateTime.now).to_i)
 		end
 		redirect_to product_index_path
 	end
