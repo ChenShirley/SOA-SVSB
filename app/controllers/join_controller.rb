@@ -4,7 +4,9 @@ class JoinController < ApplicationController
 
 	def new
   	@join = Join.new
-		@product_id = params[:product]
+		@product = Product.find(params[:product])
+		@buy = Buy.find(@product.buy_id)
+		@sum = Join.where(:product_id=>params[:product]).sum(:quantity)
 	end
 
 	def create
@@ -16,6 +18,11 @@ class JoinController < ApplicationController
 
 	def edit
   	@join = Join.includes(:product).find(params[:id])
+		@product = Product.find(@join.product_id)
+		if @product.buy_id!=nil
+			@buy = Buy.find(@product.buy_id)
+		end
+		@sum = Join.where(:product_id=>@join.product_id).sum(:quantity)
 	end
 
 	def update

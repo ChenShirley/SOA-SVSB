@@ -10,6 +10,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :deadline
 			t.integer :user_id
 			t.integer :buy_id
+			t.integer :status
 
       t.timestamps
     end

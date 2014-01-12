@@ -12,7 +12,7 @@
 <div class="col-lg-4 new_item_image_container">
 	
 	<!--<img src="http://speciality.r13.railsrumble.com/assets/default-new-item-e751e081746cd94c3b2e9fab290808e9.png" class="new_item_image">-->
-<%= image_tag @product.pic.url(:medium)  %>
+<%= image_tag @product.pic.url(:thumb)  %>
 
 	<div class="custom-file-upload btn btn-success new_item_upload_button" >
 	    <div class="file-upload">
@@ -31,9 +31,14 @@
 			   <%= f.label :category, "Category" %>
     <%= f.select :category, [['Food','food'],['Toiletries','toiletries'],['Stationary','stationary']] %>
 		</br>	
-</br>			
+</br>
+
     <span style = "color: #B4EEF5"><%= f.label :quantity, "Quantity" %></span>
+	<% if @product.buy_id!=nil %>	
+    <%= f.select :quantity,[['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],['9','9'],['10','10']],{}, {:disabled=>true} %>
+	<% else %>
     <%= f.select :quantity,[['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],['9','9'],['10','10']] %>
+	<% end %>
 		</br></br>
 
     <span style = "color: #B4EEF5"><%= f.label :maxprice, "Max Price" %></span>

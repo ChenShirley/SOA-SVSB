@@ -23,13 +23,17 @@ class ProductController < ApplicationController
 	def create
 		@product = Product.new(params[:product])
 		if @product.save
-			Join.create(:quantity=>@product.quantity, :deadline=>@product.deadline, :user_id=>@product.user.id, :product_id=>@product.id)
+			Join.create(:quantity=>@product.quantity, :user_id=>@product.user.id, :product_id=>@product.id)
 		end
 		redirect_to product_index_path
 	end
 
 	def edit
   	@product = Product.find(params[:id])
+		if @product.buy_id!=nil
+			@buy = Buy.includes(:product).find(@product.buy_id)
+		end
+		@sum = Join.where(:product_id=>@product.id).sum(:quantity)
 	end
 
 	def update
@@ -43,8 +47,11 @@ class ProductController < ApplicationController
 
 	def show
   	@product = Product.includes(:user).find(params[:id])
-		@buy = Buy.find(@product.buy_id)
+		if @product.buy_id!=nil
+			@buy = Buy.find(@product.buy_id)
+		end
 		@join = Join.includes(:user).where(:product_id=>@product.id)
+		@sum = Join.where(:product_id=>@product.id).sum(:quantity)
 		respond_to do |format|
 		  format.html # show.html.erb
 		  format.xml  { render :xml => @product }

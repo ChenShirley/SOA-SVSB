@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(:version => 20131229184549) do
 
   create_table "joins", :force => true do |t|
     t.integer  "quantity"
-    t.string   "deadline"
     t.integer  "user_id"
     t.integer  "product_id"
+    t.integer  "buy_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

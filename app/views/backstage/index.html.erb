@@ -1,46 +1,111 @@
-<%= link_to('modify password', edit_registration_path(:user)) %>
+<center>
+<div>
+<div class=" col-lg-8 center_overlay">
+	<div class ="col-lg 2 center_overlay">
 
-<h2>Product Request List</h2>
+		<h2 style = "color: #73be60">My Page</h2>
+
+<h3 style = "color: #B4EEF5"><%= link_to('modify profile', edit_registration_path(:user)) %></h3>
+
+      
+<h2 style = "color: #B4EEF5">Product Request List</h2>
+<div class="CSSTableGenerator" >
+                <table >
+                    <tr>
+                        <td>
+                            Product Name
+                        </td>
+                        <td >
+                            Quantity
+                        </td>
+                        <td>
+                            Management
+                        </td>
+                    </tr>
 <% @product.each do |product| %>
-<%= product.productname %>
+                    <tr>
+                        <td >
+                           <%= product.productname %>
+                        </td>
+                        <td>
+                            <%= product.quantity %>
+                        </td>
+                        <td>
+                            <%= link_to 'Show', product_path(product.id) %> <%= link_to 'Edit', edit_product_path(product.id) %> <%= link_to 'Delete', product_path(product.id), :method => :delete %>
+                        </td>
+                    </tr>
+          <% end %>
+                </table>
+            </div>
 </br>
-<%= product.quantity %>
-</br>
-<%= link_to 'Show', product_path(product.id) %>
-</br>
-<%= link_to 'Edit', edit_product_path(product.id) %>
-</br>
-<%= link_to 'Delete', product_path(product.id), :method => :delete %>
-</br>
-</br>
-<% end %>
 
-<h2>Join List</h2>
+
+<h2 style = "color: #B4EEF5">Join List</h2>
+<div class="CSSTableGenerator" >
+                <table >
+                    <tr>
+                        <td>
+                            Product Name
+                        </td>
+                        <td >
+                            Quantity
+                        </td>
+                        <td>
+                            Management
+                        </td>
+                    </tr>
 <% @join.each do |join| %>
-<%= join.product.productname %>
+                    <tr>
+                        <td >
+                           <%= join.product.productname %>
+                        </td>
+                        <td>
+                            <%= join.quantity %>
+                        </td>
+                        <td>
+                            <%= link_to 'Show', product_path(join.product_id) %> <%= link_to 'Edit', edit_join_path(join.id) %> <%= link_to 'Delete', join_path(join.id), :method => :delete %>
+                        </td>
+                    </tr>
+          <% end %>
+                </table>
+            </div>
 </br>
-<%= join.quantity %>
-</br>
-<%= link_to 'Show', product_path(join.product_id) %>
-</br>
-<%= link_to 'Edit', edit_join_path(join.id) %>
-</br>
-<%= link_to 'Delete', join_path(join.id), :method => :delete %>
-</br>
-</br>
-<% end %>
 
-<h2>Buyer List</h2>
+
+<h2 style = "color: #B4EEF5">Buyer List</h2>
+<div class="CSSTableGenerator" >
+                <table >
+                    <tr>
+                        <td>
+                            Product Name
+                        </td>
+                        <td >
+                            Quantity
+                        </td>
+                        <td>
+                            Management
+                        </td>
+                    </tr>
 <% @buy.each do |buy| %>
-<%= buy.product.productname %>
+                    <tr>
+                        <td >
+                           <%= buy.product.productname %>
+                        </td>
+                        <td>
+                            <%= buy.quantity %>
+                        </td>
+                        <td>
+                            <%= link_to 'Show', product_path(buy.product_id) %> <%= link_to 'Edit', edit_buy_path(buy.id) %> <%= link_to 'Delete', buy_path(buy.id), :method => :delete %>
+                        </td>
+                    </tr>
+          <% end %>
+                </table>
+            </div>
 </br>
-<%= buy.quantity %>
-</br>
-<%= link_to 'Show', product_path(buy.product_id) %>
-</br>
-<%= link_to 'Edit', edit_buy_path(buy.id) %>
-</br>
-<%= link_to 'Delete', buy_path(buy.id), :method => :delete %>
-</br>
-</br>
-<% end %>
+
+
+
+</div>
+</div>
+</div>
+</center>

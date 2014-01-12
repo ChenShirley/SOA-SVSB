@@ -5,15 +5,14 @@
 
 		<h2 style = "color: #73be60">Product Information</h2>
 </br>
+<h4 style = "color: #F7FA00">Product Name : <%= @buy.product.productname %></h4>
 
-Product Name: <%= @buy.product.productname %>
-</br>
-Product Description: <%= @buy.product.description %>
-</br>
-Maxprice of Product: $<%= @buy.product.maxprice %>
-</br>
-Location / District:
-	<% case @buy.product.location %>
+<h4 style = "color: #F7FA00">Product Description : <%= @buy.product.description %></h4>
+
+<h4 style = "color: #F7FA00">Maxprice of Product : $ <%= @buy.product.maxprice %></h4>
+
+<h4 style = "color: #F7FA00">Location / District :  
+<% case @buy.product.location %>
 		<% when '1' %>
 		<%= "Taipei" %>
 		<% when '2' %>
@@ -27,22 +26,29 @@ Location / District:
 		<% when '6' %>
 		<%= "Eastern Taiwan" %>
 	<% end %>
-</br>
-Deadline: <%= @buy.product.deadline %>
+</h4>
+
+
+<h4 style = "color: #F7FA00">Deadline : <%= @buy.product.deadline %></h4>
 
 </br>
+
+<h2 style = "color: #73be60">Edit Buyer Information</h2>
+
 </br>
 
-		<h2 style = "color: #73be60">Edit Buyer Information</h2>
-</br>
 <%= form_for @buy, :url => buy_path(@buy.id), :method => :put do |f| %>
 
 		<span style = "color: #B4EEF5"><%= f.label :quantity, "How many I can buy" %>
-    <%= f.select :quantity,[['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],['9','9'],['10','10']] %>
+<% if @sum == @product.quantity %> <!-- no joiner now, can modify quantity-->
+    <%= f.select :quantity,[["#{@product.quantity}","#{@product.quantity}"],["#{@product.quantity+1}","#{@product.quantity+1}"],["#{@product.quantity+2}","#{@product.quantity+2}"],["#{@product.quantity+3}","#{@product.quantity+3}"],["#{@product.quantity+4}","#{@product.quantity+4}"],["#{@product.quantity+5}","#{@product.quantity+5}"]] %>
+<% elsif @sum > @product.quantity %> <!-- has joiner now, can not modify quantity-->
+    <%= f.select :quantity,[["#{@product.quantity}","#{@product.quantity}"],["#{@product.quantity+1}","#{@product.quantity+1}"],["#{@product.quantity+2}","#{@product.quantity+2}"],["#{@product.quantity+3}","#{@product.quantity+3}"],["#{@product.quantity+4}","#{@product.quantity+4}"],["#{@product.quantity+5}","#{@product.quantity+5}"]],{}, {:disabled=>true} %>
+<% end %>
 		</br>
 		
     <span style = "color: #B4EEF5"><%= f.label :place, "Where can I give product" %></span>
-    <%= f.text_field :place %>
+    <%= f.text_field :place %> </br>
 
     <%= f.hidden_field :user_id, :value => current_user.id %>
 </br>

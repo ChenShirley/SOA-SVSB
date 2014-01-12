@@ -18,6 +18,8 @@ class BuyController < ApplicationController
 
 	def edit
   	@buy = Buy.includes(:product).find(params[:id])
+		@product = Product.find(@buy.product_id)
+		@sum = Join.where(:product_id=>@product.id).sum(:quantity)
 	end
 
 	def update

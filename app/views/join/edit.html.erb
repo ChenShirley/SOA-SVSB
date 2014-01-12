@@ -5,15 +5,14 @@
 
 		<h2 style = "color: #73be60">Product Information</h2>
 </br>
+<h4 style = "color: #F7FA00">Product Name : <%= @join.product.productname %></h4>
 
-Product Name: <%= @join.product.productname %>
-</br>
-Product Description: <%= @join.product.description %>
-</br>
-Maxprice of Product: $<%= @join.product.maxprice %>
-</br>
-Location / District:
-	<% case @join.product.location %>
+<h4 style = "color: #F7FA00">Product Description : <%= @join.product.description %></h4>
+
+<h4 style = "color: #F7FA00">Maxprice of Product : $ <%= @join.product.maxprice %></h4>
+
+<h4 style = "color: #F7FA00">Location / District :  
+<% case @join.product.location %>
 		<% when '1' %>
 		<%= "Taipei" %>
 		<% when '2' %>
@@ -27,10 +26,10 @@ Location / District:
 		<% when '6' %>
 		<%= "Eastern Taiwan" %>
 	<% end %>
-</br>
-Deadline: <%= @join.product.deadline %>
+</h4>
 
-</br>
+<h4 style = "color: #F7FA00">Deadline : <%= @join.product.deadline %></h4>
+
 </br>
 
 		<h2 style = "color: #73be60">Edit Join Information</h2>
@@ -38,11 +37,12 @@ Deadline: <%= @join.product.deadline %>
 <%= form_for @join, :url => join_path(@join.id), :method => :put do |f| %>
 
 		<span style = "color: #B4EEF5"><%= f.label :quantity, "Quantity" %>
-    <%= f.select :quantity,[['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],['9','9'],['10','10']] %>
+		<% @amount = @buy.quantity.to_i-@sum.to_i %>
+		<% @num = Array.new(@amount) { |i| i = i + 1 } %>
+    <%= f.select :quantity, @num.map { |value| [ value, value ] } %>
 		</br>
 		
-    <span style = "color: #B4EEF5"><%= f.label :deadline, "My own Deadline" %></span>
-    <%= f.text_field :deadline %>
+    
 
     <%= f.hidden_field :user_id, :value => current_user.id %>
 </br>
