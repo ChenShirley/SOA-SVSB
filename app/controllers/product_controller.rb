@@ -23,7 +23,7 @@ class ProductController < ApplicationController
 	def create
 		@product = Product.new(params[:product])
 		if @product.save
-			Join.create(:quantity=>@product.quantity, :user_id=>@product.user.id, :product_id=>@product.id)
+			Join.create(:quantity=>@product.quantity, :user_id=>@product.user.id, :product_id=>@product.id, :productrequest=>true)
 		end
 		redirect_to product_index_path
 	end

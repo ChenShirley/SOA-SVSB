@@ -259,4 +259,5 @@ Devise.setup do |config|
 	require "omniauth-facebook"
 	config.omniauth :facebook, ENV["FB_APP_ID"], ENV["FB_APP_SECRET"]
 
+	config.scoped_views = true
 end

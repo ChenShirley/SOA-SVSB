@@ -5,7 +5,7 @@ class CreateJoins < ActiveRecord::Migration
 			t.integer :user_id
 			t.integer :product_id
 			t.integer :buy_id
-			t.boolean :productrequest
+			t.boolean :productrequest, :default=>false
 
       t.timestamps
     end

@@ -28,26 +28,37 @@
                 <div class="collapse header_collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav navbar-right ">
                         <li class="navbar_list">
-                            <% if current_user %>
+                            <% if user_signed_in? %>
                                 <%=link_to( 'Logout', destroy_user_session_path, :method=>:delete, :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
                             <% else %>
-                                <%=link_to( 'Sign Up', new_registration_path(:user), :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
+                                <%=link_to( 'Sign Up', new_user_registration_path, :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
                             <% end %>
                         </li>
                         <!-- Creates hyperlink for sign up button to open sign up page and will appear as log out when user is signed in-->
                         <li class="navbar_list">
                             <div class="dropdown">
-                                <% if current_user %>
+                                <% if user_signed_in? %>
 																		<%= link_to('My Page', backstage_index_path, :class=>"btn btn-danger header_btn", :id=>"login") %>
                                 <% else %>
-                                    <%=link_to( 'Login', new_session_path(:user), :class=>"btn btn-danger header_btn", :id=>"login") %>
+                                    <%=link_to( 'Login', new_user_session_path, :class=>"btn btn-danger header_btn", :id=>"login") %>
                                 <% end %>
                             </div>
                         </li>
                         <!-- Creates hyperlink for login button to open login page and will appear as modify password when user is loged in-->
                         <li class="navbar_list">
                             <div class="dropdown">
-                                <%=link_to( 'New product', new_product_path, :class=>"btn btn-danger", :id=>"my-account") %>
+                                <%=link_to( 'New product', new_product_path, :class=>"btn btn-danger header_btn", :id=>"my-account") %>
+														</div>
+                        </li>
+
+                        <li class="navbar_list">
+                            <div class="dropdown">
+                                <% if admin_signed_in? %>
+                                <%=link_to( 'Admin Logout', destroy_admin_session_path, :method=>:delete, :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
+                                <% else %>
+                                		<%=link_to( 'Admin Sign Up', new_admin_registration_path, :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
+                                    <%=link_to( 'Admin Login', new_admin_session_path, :class=>"btn btn-danger header_btn", :id=>"login") %>
+                                <% end %>
 														</div>
                         </li>
                         <!-- Creates hyperlink for new product button to open new product page-->

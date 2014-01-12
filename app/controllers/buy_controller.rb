@@ -11,7 +11,9 @@ class BuyController < ApplicationController
 		@buy = Buy.new(params[:buy])
 		if @buy.save
 			@product = Product.find(@buy.product_id)
-			@product.update_attributes(:buy_id=>@buy.id)
+			@product.update_attributes(:buy_id=>@buy.id, :status=>2)
+			@join = Join.where(:product_id=>@product.id, :user_id=>@product.user_id, :productrequest=>true)
+			@join[0].update_attributes(:buy_id=>@buy.id)
 		end
 		redirect_to product_path(@buy.product_id)
 	end
