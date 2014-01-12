@@ -17,6 +17,7 @@ SoaSvsb::Application.routes.draw do
   get "join/:product"=>"join#new"
 	resources :join
 
+  get "backstage/adminindex"=>"backstage#adminindex"
 	resources :backstage
 
   # The priority is based upon order of creation:

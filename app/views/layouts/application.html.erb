@@ -27,14 +27,18 @@
                 <!-- creates and places the three buttons to top right of the navigation bar (login, sign up and new product) -->
                 <div class="collapse header_collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav navbar-right ">
+
                         <li class="navbar_list">
-                            <% if user_signed_in? %>
-                                <%=link_to( 'Logout', destroy_user_session_path, :method=>:delete, :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
-                            <% else %>
-                                <%=link_to( 'Sign Up', new_user_registration_path, :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
-                            <% end %>
+                            <div class="dropdown">
+		                          <% if user_signed_in? %>
+		                              <%=link_to( 'Logout', destroy_user_session_path, :method=>:delete, :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
+		                          <% else %>
+		                              <%=link_to( 'Sign Up', new_user_registration_path, :class=>"btn btn-danger header_btn", :id=>"add_dish") %>
+		                          <% end %>
+														</div>
                         </li>
                         <!-- Creates hyperlink for sign up button to open sign up page and will appear as log out when user is signed in-->
+
                         <li class="navbar_list">
                             <div class="dropdown">
                                 <% if user_signed_in? %>
@@ -42,6 +46,10 @@
                                 <% else %>
                                     <%=link_to( 'Login', new_user_session_path, :class=>"btn btn-danger header_btn", :id=>"login") %>
                                 <% end %>
+
+																<% if admin_signed_in? %>
+																	<%= link_to('Admin Page', backstage_adminindex_path, :class=>"btn btn-danger header_btn", :id=>"login") %>
+																<% end %>
                             </div>
                         </li>
                         <!-- Creates hyperlink for login button to open login page and will appear as modify password when user is loged in-->

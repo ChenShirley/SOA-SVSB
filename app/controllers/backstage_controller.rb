@@ -8,4 +8,11 @@ class BackstageController < ApplicationController
   	#@product = Product.includes(:user).where(:user_id=>current_user.id)
 	end
 
+	def adminindex
+  	@adminbuy = Buy.includes(:product).includes(:user).all
+  	@adminjoin = Join.includes(:product).includes(:user).where(:productrequest=>false).all
+  	@adminmyrequest = Join.includes(:product).includes(:user).where(:productrequest=>true).all
+  	#@product = Product.includes(:user).where(:user_id=>current_user.id)
+	end
+
 end

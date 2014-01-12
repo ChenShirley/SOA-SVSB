@@ -3,9 +3,7 @@
 <div class=" col-lg-8 center_overlay">
 	<div class ="col-lg 2 center_overlay">
 
-		<h2 style = "color: #73be60">My Page</h2>
-
-<h3 style = "color: #B4EEF5"><%= link_to('Modify Profile', edit_user_registration_path) %></h3>
+		<h2 style = "color: #73be60">Admin Page</h2>
 
 <h2 style = "color: #B4EEF5">Join List</h2>
 <div class="CSSTableGenerator" >
@@ -17,7 +15,7 @@
                         <td>My Request?</td>
                     </tr>
 
-				<% @myrequest.each do |myrequest| %>
+				<% @adminmyrequest.each do |myrequest| %>
                     <tr>
                         <td>
                            <%= myrequest.product.productname %>
@@ -32,7 +30,7 @@
                     </tr>
           <% end %>
 
-				<% @join.each do |join| %>
+				<% @adminjoin.each do |join| %>
                     <tr>
                         <td><%= join.product.productname %></td>
                         <td><%= join.quantity %></td>
@@ -61,7 +59,7 @@
                             Management
                         </td>
                     </tr>
-<% @buy.each do |buy| %>
+<% @adminbuy.each do |buy| %>
                     <tr>
                         <td >
                            <%= buy.product.productname %>
